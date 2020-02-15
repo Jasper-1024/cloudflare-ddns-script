@@ -2,7 +2,7 @@
 
 #### cloudflare ddns 脚本/树莓派IPV6 DDNS解决方案
 
-## 更新[Server酱支持版本](https://github.com/wherelse/Raspberrypi-IPV6-DDNS-Solution/tree/ServerPush) 
+## 更新[Server酱支持版本](https://github.com/wherelse/cloudflare-ddns-script/tree/ServerPush) 
 
 ### 概述
 本脚本是基于cloudflare API的DDNS脚本，支持IPV4和IPV6，可通过网络方式和本地方式获取脚本安装主机的IP地址，理论支持所有使用linux系统的主机，已在debian和ubuntu上测试可用。
@@ -16,7 +16,7 @@
 ### 使用方法
 打开命令窗口，执行以下程序：
 ```shell
-wget https://raw.githubusercontent.com/wherelse/Raspberrypi-IPV6-DDNS-Solution/master/cloudflare-ddns.sh
+wget https://raw.githubusercontent.com/wherelse/cloudflare-ddns-script/master/cloudflare-ddns.sh
 sudo chmod +x /home/username/cloudflare-ddns.sh #目录根据实际用户等进行更改
 ```
 需要对脚本内的个人配置信息进行更改，目录和上一条命令保持一致
