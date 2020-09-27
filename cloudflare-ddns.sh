@@ -14,6 +14,7 @@ ip_file="ip.txt"            #保存地址信息,save ip information in the ip.tx
 id_file="cloudflare.ids"
 log_file="cloudflare.log"
 
+# set -x
 
 if [ $record_type = "AAAA" ];then
     if [ $ip_index = "internet" ];then
@@ -76,8 +77,8 @@ else
         -H "Content-Type: application/json" | grep -Po '(?<="id":")[^"]*' | head -1 )
     record_identifier=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$zone_identifier/dns_records?name=$record_name" \
         -H "X-Auth-Email: $auth_email" \
-        -H "X-Auth-Key: $auth_key" 
-        -H "Content-Type: application/json"  | grep -Po '(?<="id": ")[^"]*')
+        -H "X-Auth-Key: $auth_key" \
+        -H "Content-Type: application/json"  | grep -Po '(?<="id":")[^"]*' | head -1 )
     echo "$zone_identifier" > $id_file
     echo "$record_identifier" >> $id_file
 fi
@@ -90,8 +91,8 @@ update=$(curl -s -X PUT "https://api.cloudflare.com/client/v4/zones/$zone_identi
     --data "{\"type\":\"$record_type\",\"name\":\"$record_name\",\"content\":\"$ip\",\"ttl\":1,\"proxied\":false}")
 
 
-#反馈更新情况 gave the feedback about the update statues
-if [[ "$(echo $update | grep "\"success\": true")" != "" ]]; then
+#反馈更新情况 gave the feedback about the update statues 
+if [[ "$(echo $update | grep -Po '(?<="content":")[^"]*' | head -1)" == "$ip" ]]; then # 如果ip确实更新成功
     message="IP changed to: $ip"
     echo "$ip" > $ip_file
     log "$message"
