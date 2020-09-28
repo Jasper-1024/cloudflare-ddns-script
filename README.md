@@ -1,5 +1,9 @@
 # CloudFlare DDNS script/Raspberry pi IPV6 DDNS Solution 
 
+仅仅在原版本上修正了 api 更新导致的错误,仅修正了 cloudflare-ddns.sh 一个文件.
+
+---
+
 #### cloudflare ddns 脚本/树莓派IPV6 DDNS解决方案
 
 中文 | [English](/README-EN.md)
