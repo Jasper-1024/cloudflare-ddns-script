@@ -2,6 +2,8 @@
 
 仅仅在原版本上修正了 api 更新导致的错误,仅修正了 cloudflare-ddns.sh 一个文件.
 
+(25.02.03) 小重构, 现在能同时更新 a 和 aaa 了
+
 ---
 
 #### cloudflare ddns 脚本/树莓派IPV6 DDNS解决方案
